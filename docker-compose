@@ -162,9 +162,9 @@ services:
       - /tmp/nextcloud:/config
       - /nextcloud-data:/data
     ports:
-      - 443:443
+      - 444:443
     restart: unless-stopped
-    
+
   mariadb:
     image: lscr.io/linuxserver/mariadb:latest
     container_name: mariadb
