@@ -11,7 +11,7 @@ services:
     volumes:
       - /tmp/readarr/data:/config
       - /books:/books #optional
-      - /tmp/readarr/downloads:/downloads #optional
+      - /downloads:/downloads #optional
     ports:
       - 8787:8787
     restart: unless-stopped
@@ -25,7 +25,7 @@ services:
     volumes:
       - /tmp/radarr/data:/config
       - /movies:/movies #optional
-      - /tmp/radarr/downloads:/downloads #optional
+      - /downloads:/downloads #optional
     ports:
       - 7878:7878
     restart: unless-stopped
@@ -39,7 +39,7 @@ services:
     volumes:
       - /tmp/sonarr/data:/config
       - /series:/tv #optional
-      - /tmp/sonarr/downloads:/downloads #optional
+      - /downloads:/downloads #optional
     ports:
       - 8989:8989
     restart: unless-stopped
