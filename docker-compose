@@ -6,10 +6,10 @@ services:
     container_name: readarr
     environment:
       - PUID=1000
-      - PGID=1000
+      - PGID=1002
       - TZ=America/Mexico_City
     volumes:
-      - /tmp/readarr/data:/config
+      - /docker/readarr/data:/config
       - /books:/books #optional
       - /downloads:/downloads #optional
     ports:
@@ -21,10 +21,10 @@ services:
     container_name: radarr
     environment:
       - PUID=1000
-      - PGID=1000
+      - PGID=1002
       - TZ=America/Mexico_City
     volumes:
-      - /tmp/radarr/data:/config
+      - /docker/radarr/data:/config
       - /movies:/movies #optional
       - /downloads:/downloads #optional
     ports:
@@ -36,10 +36,10 @@ services:
     container_name: sonarr
     environment:
       - PUID=1000
-      - PGID=1000
+      - PGID=1002
       - TZ=America/Mexico_City
     volumes:
-      - /tmp/sonarr/data:/config
+      - /docker/sonarr/data:/config
       - /series:/tv #optional
       - /downloads:/downloads #optional
     ports:
@@ -51,11 +51,11 @@ services:
     container_name: deluge
     environment:
       - PUID=1000
-      - PGID=1000
+      - PGID=1002
       - TZ=America/Mexico_City
       - DELUGE_LOGLEVEL=error #optional
     volumes:
-      - /tmp/deluge/config:/config
+      - /docker/deluge/config:/config
       - /downloads:/downloads
     ports:
       - 8112:8112
@@ -68,13 +68,13 @@ services:
     container_name: jackett
     environment:
       - PUID=1000
-      - PGID=1000
+      - PGID=1002
       - TZ=America/Mexico_City
       - AUTO_UPDATE=true #optional
       - RUN_OPTS= #optional
     volumes:
-      - /tmp/jacket/data:/config
-      - /tmp/jacket/blackhole:/downloads
+      - /docker/jacket/data:/config
+      - /docker/jacket/blackhole:/downloads
     ports:
       - 9117:9117
     restart: unless-stopped
@@ -95,10 +95,10 @@ services:
     container_name: prowlarr
     environment:
       - PUID=1000
-      - PGID=1000
+      - PGID=1002
       - TZ=America/Mexico_City
     volumes:
-      - /tmp/prowlarr:/config
+      - /docker/prowlarr:/config
     ports:
       - 9696:9696
     restart: unless-stopped
@@ -108,11 +108,11 @@ services:
     container_name: jellyfin
     environment:
       - PUID=1000
-      - PGID=1000
+      - PGID=1002
       - TZ=America/Mexico_City
       - JELLYFIN_PublishedServerUrl=192.168.0.5 #optional
     volumes:
-      - /tmp/jellyfin:/config
+      - /docker/jellyfin:/config
       - /series:/data/tvshows
       - /movies:/data/movies
     ports:
@@ -127,12 +127,12 @@ services:
     container_name: calibre-web
     environment:
       - PUID=1000
-      - PGID=1000
+      - PGID=1002
       - TZ=America/Mexico_City
       - DOCKER_MODS=linuxserver/mods:universal-calibre #optional
       - OAUTHLIB_RELAX_TOKEN_SCOPE=1 #optional
     volumes:
-      - /tmp/calibreweb:/config
+      - /docker/calibreweb:/config
       - /books:/books
     ports:
       - 8083:8083
@@ -142,10 +142,10 @@ services:
     container_name: bazarr
     environment:
       - PUID=1000
-      - PGID=1000
+      - PGID=1002
       - TZ=America/Mexico_City
     volumes:
-      - /tmp/bazarr/config:/config
+      - /docker/bazarr/config:/config
       - /movies:/movies #optional
       - /series:/tv #optional
     ports:
@@ -156,10 +156,10 @@ services:
     container_name: nextcloud
     environment:
       - PUID=1000
-      - PGID=1000
+      - PGID=1002
       - TZ=America/Mexico_City
     volumes:
-      - /tmp/nextcloud:/config
+      - /docker/nextcloud:/config
       - /nextcloud-data:/data
     ports:
       - 444:443
@@ -170,14 +170,14 @@ services:
     container_name: mariadb
     environment:
       - PUID=1000
-      - PGID=1000
+      - PGID=1002
       - TZ=Etc/UTC
       - MYSQL_ROOT_PASSWORD='elaine'
       - MYSQL_DATABASE='nextcloud' #optional
       - MYSQL_USER='nextcloud' #optional
       - MYSQL_PASSWORD='nextcloud' #optional
     volumes:
-      - /tmp/mysql:/config
+      - /docker/mysql:/config
     ports:
       - 3306:3306
     restart: unless-stopped
