@@ -5,7 +5,7 @@ services:
     image: lscr.io/linuxserver/readarr:develop
     container_name: readarr
     environment:
-      - PUID=1002
+      - PUID=1000
       - PGID=1002
       - TZ=America/Mexico_City
     volumes:
@@ -20,7 +20,7 @@ services:
     image: lscr.io/linuxserver/radarr:latest
     container_name: radarr
     environment:
-      - PUID=1002
+      - PUID=1000
       - PGID=1002
       - TZ=America/Mexico_City
     volumes:
@@ -35,7 +35,7 @@ services:
     image: lscr.io/linuxserver/sonarr:latest
     container_name: sonarr
     environment:
-      - PUID=1002
+      - PUID=1000
       - PGID=1002
       - TZ=America/Mexico_City
     volumes:
@@ -50,7 +50,7 @@ services:
     image: lscr.io/linuxserver/deluge:latest
     container_name: deluge
     environment:
-      - PUID=1002
+      - PUID=1000
       - PGID=1002
       - TZ=America/Mexico_City
       - DELUGE_LOGLEVEL=error #optional
@@ -67,7 +67,7 @@ services:
     image: lscr.io/linuxserver/jackett:latest
     container_name: jackett
     environment:
-      - PUID=1002
+      - PUID=1000
       - PGID=1002
       - TZ=America/Mexico_City
       - AUTO_UPDATE=true #optional
@@ -83,7 +83,7 @@ services:
     image: lscr.io/linuxserver/plex:latest
     container_name: plex
     environment:
-      - PUID=1002
+      - PUID=1000
       - PGID=1002
       - TZ=America/Mexico_City
       - VERSION=docker
