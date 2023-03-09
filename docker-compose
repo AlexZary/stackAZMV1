@@ -200,7 +200,7 @@ services:
     image: mariadb
     container_name: mariadb
     environment:
-      - MARIADB_ROOT_PASSWORD=elaine
+      - MARIADB_ROOT_PASSWORD=marriadbpass
       - MARIADB_DATABASE=nextcloud
       - MARIADB_USER=homeserver
       - MARIADB_PASSWORD=serverpass
