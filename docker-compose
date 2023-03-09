@@ -200,6 +200,8 @@ services:
     image: mariadb
     container_name: mariadb
     environment:
+      - PUID=1000
+      - PGID=1002
       - MARIADB_ROOT_PASSWORD=marriadbpass
       - MARIADB_DATABASE=nextcloud
       - MARIADB_USER=homeserver
@@ -219,6 +221,8 @@ services:
     volumes:
       - /nextcloud:/var/www/html
     environment:
+      - PUID=1000
+      - PGID=1002
       - MYSQL_PASSWORD=serverpass
       - MYSQL_DATABASE=nextcloud
       - MYSQL_USER=nextcloud
