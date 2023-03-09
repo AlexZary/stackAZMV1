@@ -136,21 +136,6 @@ services:
       - 6767:6767
     restart: unless-stopped
 
-  sabnzbd:
-    image: lscr.io/linuxserver/sabnzbd:latest
-    container_name: sabnzbd
-    environment:
-      - PUID=1000
-      - PGID=1002
-      - TZ=America/Mexico_City
-    volumes:
-      - /docker/sabnzbd/data:/config
-      - /docker/sabnzbd/downloads:/downloads #optional
-      - /docker/sabnzbd/incomplete/downloads:/incomplete-downloads #optional
-    ports:
-      - 8088:8080
-    restart: unless-stopped
-
   whisparr:
     container_name: whisparr
     image: cr.hotio.dev/hotio/whisparr
@@ -164,21 +149,6 @@ services:
     volumes:
       - /docker/whisparr/config:/config
       - /adults:/adults #optional
-
-  mylar:
-    image: ghcr.io/linuxserver/mylar
-    container_name: mylar
-    environment:
-      - PUID=1000
-      - PGID=1002
-      - TZ=America/Mexico_City
-    volumes:
-      - /docker/mylar/config:/config
-      - /comics:/comics
-      - /downloads:/downloads
-    ports:
-      - 8090:8090
-    restart: unless-stopped
 
   nzbget:
     image: lscr.io/linuxserver/nzbget:latest
@@ -225,7 +195,7 @@ services:
       - PGID=1002
       - MYSQL_PASSWORD=serverpass
       - MYSQL_DATABASE=nextcloud
-      - MYSQL_USER=nextcloud
+      - MYSQL_USER=homeserver
       - MYSQL_HOST=192.168.1.200
       - NEXTCLOUD_ADMIN_USER=admin
       - NEXTCLOUD_ADMIN_PASSWORD=nextcloudadmin
