@@ -237,6 +237,7 @@ services:
       - TZ=America/Mexico_City
     volumes:
       - /shared/Docker/heimdall/config:/config
+      - /etc/hosts:/etc/hosts
     ports:
       - 80:80
       - 443:443
