@@ -200,6 +200,23 @@ services:
       - /dev/mmcblk1:/dev/mmcblk1
     restart: unless-stopped
 
+  scrutiny:
+    container_name: scrutiny
+    image: ghcr.io/analogj/scrutiny:master-omnibus
+    cap_add:
+      - SYS_RAWIO
+    ports:
+      - 8090:8080 # webapp
+      - 8086:8086 # influxDB admin
+    volumes:
+      - /run/udev:/run/udev:ro
+      - /shared/Docker/config:/opt/scrutiny/config
+      - /shared/Docker/influxdb:/opt/scrutiny/influxdb
+    devices:
+      - /dev/sda
+      - /dev/sdb
+      - /dev/mmcblk1
+
   pyload-ng:
     image: lscr.io/linuxserver/pyload-ng:latest
     container_name: pyload-ng
