@@ -188,18 +188,7 @@ services:
     depends_on:
       - mariadb
     restart: unless-stopped
-
-    volumes:
-      - /shared/Docker/scrutiny/config:/config
-      - /run/udev:/run/udev:ro
-    ports:
-      - 9080:8080
-    devices:
-      - /dev/sda:/dev/sda
-      - /dev/sdb:/dev/sdb
-      - /dev/mmcblk1:/dev/mmcblk1
-    restart: unless-stopped
-
+    
   scrutiny:
     container_name: scrutiny
     image: ghcr.io/analogj/scrutiny:master-omnibus
