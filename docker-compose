@@ -239,5 +239,5 @@ services:
       - /shared/Docker/heimdall/config:/config
     ports:
       - 80:80
-      - 444:443
+      - 443:443
     restart: unless-stopped
